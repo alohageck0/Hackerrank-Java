@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Scanner;
+import java.util.*;
 
 public class Solution {
 
@@ -18,6 +16,8 @@ public class Solution {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         ArrayList<String> test = createList(sc.next(), sc.nextInt());
-        System.out.println(test);
+        Collections.sort(test);
+        System.out.println(test.get(0));
+        System.out.println(test.get(test.size()-1));
     }
 }
