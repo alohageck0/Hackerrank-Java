@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/StringPractice/Compare/Compare.iml" filepath="$PROJECT_DIR$/StringPractice/Compare/Compare.iml" />
       <module fileurl="file://$PROJECT_DIR$/Hackerrank-Java.iml" filepath="$PROJECT_DIR$/Hackerrank-Java.iml" />
       <module fileurl="file://$PROJECT_DIR$/StringPractice/Intro/Intro.iml" filepath="$PROJECT_DIR$/StringPractice/Intro/Intro.iml" />
       <module fileurl="file://$PROJECT_DIR$/tests/tests.iml" filepath="$PROJECT_DIR$/tests/tests.iml" />
