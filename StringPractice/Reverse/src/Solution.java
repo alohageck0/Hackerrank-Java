@@ -1,4 +1,7 @@
-import java.util.*;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+import java.util.Stack;
 
 public class Solution {
     public static String ifPalindrome(String strin) {
