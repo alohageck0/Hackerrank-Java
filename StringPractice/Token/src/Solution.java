@@ -10,7 +10,10 @@ public class Solution {
 
         Scanner scan = new Scanner(System.in);
         String s = scan.nextLine();
-        //Complete the code
-
+        StringTokenizer token = new StringTokenizer(s, " !,?.\\_'@");
+        System.out.println(token.countTokens());
+        while (token.hasMoreTokens()){
+            System.out.println(token.nextToken());
+        }
     }
 }
