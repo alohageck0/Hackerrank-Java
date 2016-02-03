@@ -13,17 +13,14 @@ public class Solution {
                 hashMapA.put(lowerA, 1);
             } else if (!hashMapB.containsKey(lowerB)) {
                 hashMapB.put(lowerB, 1);
-            } else {
-                hashMapA.put(lowerA, hashMapA.get(lowerA) + 1);
-                hashMapB.put(lowerB, hashMapB.get(lowerB) + 1);
             }
+//            hashMapA.put(lowerA, hashMapA.get(lowerA) + 1);
+//            hashMapB.put(lowerB, hashMapB.get(lowerB) + 1);
+//todo create method to check if key in hash
         }
         System.out.println(hashMapA.values());
         System.out.println(hashMapB.values());
-        for (int C :
-                hashMapA.values()) {
-            if (C != 2) return false;
-        }
+
         return true;
     }
 
