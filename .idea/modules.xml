@@ -8,7 +8,6 @@
       <module fileurl="file://$PROJECT_DIR$/StringPractice/Intro/Intro.iml" filepath="$PROJECT_DIR$/StringPractice/Intro/Intro.iml" />
       <module fileurl="file://$PROJECT_DIR$/Regex/Regex.iml" filepath="$PROJECT_DIR$/Regex/Regex.iml" />
       <module fileurl="file://$PROJECT_DIR$/StringPractice/Reverse/Reverse.iml" filepath="$PROJECT_DIR$/StringPractice/Reverse/Reverse.iml" />
-      <module fileurl="file://$PROJECT_DIR$/SyntaxChecker/SyntaxChecker.iml" filepath="$PROJECT_DIR$/SyntaxChecker/SyntaxChecker.iml" />
       <module fileurl="file://$PROJECT_DIR$/StringPractice/Token/Token.iml" filepath="$PROJECT_DIR$/StringPractice/Token/Token.iml" />
       <module fileurl="file://$PROJECT_DIR$/tests/tests.iml" filepath="$PROJECT_DIR$/tests/tests.iml" />
     </modules>
