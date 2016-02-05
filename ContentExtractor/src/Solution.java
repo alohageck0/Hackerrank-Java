@@ -1,10 +1,16 @@
-import java.io.*;
 import java.util.*;
-import java.text.*;
-import java.math.*;
-import java.util.regex.*;
 
+//<h1>Nayeem loves counseling</h1>
+//(<[a-zA-Z ]+(\d)?>)
 public class Solution {
+
+    public static String findOpenTags(String strin) {
+        String tempStrin = strin;
+        if (strin.charAt(0)=='<') {
+            tempStrin.substring(1, tempStrin.indexOf('>'));
+        }
+        return tempStrin;
+    }
 
     public static void main(String[] args) {
 
@@ -12,8 +18,6 @@ public class Solution {
         int testCases = Integer.parseInt(in.nextLine());
         while (testCases > 0) {
             String line = in.nextLine();
-
-            //Write your code here
 
             testCases--;
         }
