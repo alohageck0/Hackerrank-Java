@@ -16,7 +16,8 @@ public class Solution {
         String tempStrin = strin;
         while (strin.charAt(0) == '<') {
             queue.add(tempStrin.substring(1, tempStrin.indexOf('>')));
-            return findOpenTags(queue, tempStrin.substring(tempStrin.indexOf('>')));
+            System.out.println(tempStrin.substring(tempStrin.indexOf('>')+1));
+            return findOpenTags(queue, tempStrin.substring(tempStrin.indexOf('>')+1));
         }
         return queue;
     }
@@ -31,24 +32,13 @@ public class Solution {
     }
 
     public static void main(String[] args) {
+        Queue<String> openTags = new LinkedList<>();
+        Stack<String> closeTags = new Stack<>();
+        String test = "<a><b>dsfdsfds</b></a>";
 
-        Scanner in = new Scanner(System.in);
-        int testCases = Integer.parseInt(in.nextLine());
-        while (testCases > 0) {
-            String line = in.nextLine();
-
-            Queue<String> openTags = new LinkedList<>();
-            Stack<String> closeTags = new Stack<>();
-
-            if (tagsCorrect(openTags, closeTags)) {
-//                printLineWithouTags();
-            } else {
-                System.out.println("None");
-            }
+        findOpenTags(openTags, test);
+        while (!openTags.isEmpty()) {
+            System.out.println(openTags.remove());
         }
-
-        testCases--;
     }
-
-
 }
