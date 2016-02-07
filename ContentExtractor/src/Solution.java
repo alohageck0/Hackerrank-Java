@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.regex.Pattern;
 
 //<h1>Nayeem loves counseling</h1>
 //(<[a-zA-Z ]+(\d)?>)
@@ -28,6 +29,14 @@ public class Solution {
             return findCloseTags(stack, tempStrin.substring(tempStrin.indexOf('>')));
         }
         return stack;
+    }
+
+    public static String deleteOpenTags(Queue<String> tags, String strin) {
+        while (!tags.isEmpty()) {
+            strin.replaceFirst("<" + tags.remove() + ">", strin);
+            return deleteOpenTags(tags, strin);
+        }
+        return strin;
     }
 
     public static void main(String[] args) {
