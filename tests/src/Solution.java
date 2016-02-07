@@ -16,8 +16,8 @@ public class Solution {
         String tempStrin = strin;
         while (strin.charAt(0) == '<') {
             queue.add(tempStrin.substring(1, tempStrin.indexOf('>')));
-            System.out.println(tempStrin.substring(tempStrin.indexOf('>')+1));
-            return findOpenTags(queue, tempStrin.substring(tempStrin.indexOf('>')+1));
+            System.out.println(tempStrin.substring(tempStrin.indexOf('>') + 1));
+            return findOpenTags(queue, tempStrin.substring(tempStrin.indexOf('>') + 1));
         }
         return queue;
     }
@@ -29,6 +29,14 @@ public class Solution {
             return findCloseTags(stack, tempStrin.substring(tempStrin.indexOf('>')));
         }
         return stack;
+    }
+
+    public static String deleteOpenTags(Queue<String> tags, String strin) {
+        while (!tags.isEmpty()) {
+            strin.replaceFirst("<" + tags.remove() + ">", strin);
+            return deleteOpenTags(tags, strin);
+        }
+        return strin;
     }
 
     public static void main(String[] args) {
