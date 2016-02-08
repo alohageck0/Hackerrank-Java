@@ -22,36 +22,54 @@ public class Solution {
         return queue;
     }
 
-    public static Stack<String> findCloseTags(Stack<String> stack, String strin) {
-        String tempStrin = strin;
-        while (strin.charAt(strin.length() - 1) == '>') {
-            stack.add(tempStrin.substring(tempStrin.indexOf("<") + 1, tempStrin.indexOf('>')));
-            return findCloseTags(stack, tempStrin.substring(tempStrin.indexOf('>')));
-        }
-        return stack;
-    }
-
     public static String deleteOpenTags(Queue<String> tags, String strin) {
         String temp = strin;
         Queue<String> tempTags = tags;
         while (!tags.isEmpty()) {
 //            strin.replaceFirst("<" + tags.remove() + ">", strin);
 //            System.out.println(tempTags.peek());
-            temp = temp.replaceAll("<" + tempTags.poll() + ">", "");
+            temp = temp.replaceAll("<" + tempTags.remove() + ">", "");
 //            System.out.println(temp);
             return deleteOpenTags(tempTags, temp);
         }
         return temp;
     }
 
+    public static Stack<String> findCloseTags(Stack<String> stack, String strin) {
+        String tempStrin = strin;
+        while (strin.length() != 0 && strin.charAt(strin.length() - 1) == '>') {
+            stack.add(tempStrin.substring(tempStrin.indexOf("</") + 2, tempStrin.indexOf('>')));
+            return findCloseTags(stack, tempStrin.substring(tempStrin.indexOf('>') + 1));
+        }
+        return stack;
+    }
+
+    public static String deleteCloseTags(Stack<String> tags, String strin) {
+        String temp = strin;
+        Stack<String> tempTags = tags;
+        while (!tags.isEmpty()) {
+//            strin.replaceFirst("<" + tempTags.pop() + ">", strin);
+            System.out.println(tempTags.peek());
+            temp = temp.replaceAll("</" + tempTags.pop() + ">", "");
+            System.out.println(temp);
+            return deleteCloseTags(tempTags, temp);
+        }
+        return temp;
+    }
+
+
     public static void main(String[] args) {
         Queue<String> openTags = new LinkedList<>();
         Stack<String> closeTags = new Stack<>();
         String test = "<a><b>dsfdsfds</b></a>";
         findOpenTags(openTags, test);
-//        while (!openTags.isEmpty()) {
-//            System.out.println(openTags.remove());
+        String test1 = deleteOpenTags(openTags, test);
+        System.out.println(test1);
+        findCloseTags(closeTags, test1);
+
+        System.out.println(deleteCloseTags(closeTags, test1));
+//        if (tagsCorrect(openTags, closeTags)) {
+//
 //        }
-        System.out.println(deleteOpenTags(openTags, test));
     }
 }
