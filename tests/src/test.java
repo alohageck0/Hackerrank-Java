@@ -1,3 +1,4 @@
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class test {
@@ -7,5 +8,6 @@ public class test {
         Pattern p = Pattern.compile("<[A-za-z0-9]>+[A-za-z0-9 ]</[A-za-z0-9]>+");
         String regex = "(<[A-za-z0-9]>)+[A-za-z0-9 ](</[A-za-z0-9]>)+";
         System.out.println(tempStrin.matches(regex));
+        String m = tempStrin;
     }
 }
