@@ -16,7 +16,7 @@ public class Solution {
         String tempStrin = strin;
         while (strin.charAt(0) == '<') {
             queue.add(tempStrin.substring(1, tempStrin.indexOf('>')));
-            System.out.println(tempStrin.substring(tempStrin.indexOf('>') + 1));
+//            System.out.println(tempStrin.substring(tempStrin.indexOf('>') + 1));
             return findOpenTags(queue, tempStrin.substring(tempStrin.indexOf('>') + 1));
         }
         return queue;
@@ -32,21 +32,26 @@ public class Solution {
     }
 
     public static String deleteOpenTags(Queue<String> tags, String strin) {
+        String temp = strin;
+        Queue<String> tempTags = tags;
         while (!tags.isEmpty()) {
-            strin.replaceFirst("<" + tags.remove() + ">", strin);
-            return deleteOpenTags(tags, strin);
+//            strin.replaceFirst("<" + tags.remove() + ">", strin);
+//            System.out.println(tempTags.peek());
+            temp = temp.replaceAll("<" + tempTags.poll() + ">", "");
+//            System.out.println(temp);
+            return deleteOpenTags(tempTags, temp);
         }
-        return strin;
+        return temp;
     }
 
     public static void main(String[] args) {
         Queue<String> openTags = new LinkedList<>();
         Stack<String> closeTags = new Stack<>();
         String test = "<a><b>dsfdsfds</b></a>";
-
         findOpenTags(openTags, test);
-        while (!openTags.isEmpty()) {
-            System.out.println(openTags.remove());
-        }
+//        while (!openTags.isEmpty()) {
+//            System.out.println(openTags.remove());
+//        }
+        System.out.println(deleteOpenTags(openTags, test));
     }
 }
