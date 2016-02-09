@@ -57,6 +57,9 @@ public class Solution {
         return temp;
     }
 
+    public static boolean checkTags(Queue<String> openTags, Stack<String> closeTags, String strin) {
+        return true;
+    }
 
     public static void main(String[] args) {
         Queue<String> openTags = new LinkedList<>();
