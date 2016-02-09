@@ -1,11 +1,18 @@
+import java.util.StringTokenizer;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class test {
     public static void main(String[] args) {
-        String tempStrin = "<a><b>dsfdsfds</b></a>";
-//        System.out.println(tempStrin.substring(tempStrin.indexOf("</") + 2, tempStrin.indexOf('>')));
-        Pattern p = Pattern.compile("<[A-za-z0-9]>+[A-za-z0-9 ]</[A-za-z0-9]>+");
-        String regex = "(<[A-za-z0-9]>)+[A-za-z0-9 ](</[A-za-z0-9]>)+";
+        String tempStrin = "<h1><h2>Sanjay has no watch</h2></h1><par>So wait for a while</par>";
+        String regex = "<.+>+.+</.+>+"; // to split miltiple strings
+        Pattern pattern = Pattern.compile(regex);
         System.out.println(tempStrin.matches(regex));
+        Matcher m = pattern.matcher(tempStrin);
+        System.out.println(m.group());
+
+//        <(.+)>+.+</\1>+ regex for condition
+//        <\/?.+> to tokenize
+//        String result = tempStrin.replaceAll("</?.+>", "");
     }
 }
