@@ -9,8 +9,8 @@ public class test {
         Pattern pattern = Pattern.compile(regex);
         System.out.println(tempStrin.matches(regex));
         Matcher m = pattern.matcher(tempStrin);
-        System.out.println(m.group());
-
+//        System.out.println(m.group());
+        System.out.println(tempStrin.matches("<(.+)>+.+(</\1>)+"));
 //        <(.+)>+.+</\1>+ regex for condition
 //        <\/?.+> to tokenize
 //        String result = tempStrin.replaceAll("</?.+>", "");
