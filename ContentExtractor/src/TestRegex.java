@@ -7,7 +7,7 @@ public class TestRegex {
         String tempStrin = "<a><b>dsfdsfds</b></a>";
 //        System.out.println(tempStrin.matches("</.+><.+>"));
 //        System.out.println(strin1.matches("</a><c>"));
-        String regex = "</.+><[^/]+>"; // new open tag covered, but finds two close tags
+        String regex = "</.+><[^/]+>"; // new open tag covered, but finds two close tags, try exlcude any text between tags
         Pattern p = Pattern.compile(regex);
         Matcher m = p.matcher(strin1);
         Matcher z = p.matcher(tempStrin);
