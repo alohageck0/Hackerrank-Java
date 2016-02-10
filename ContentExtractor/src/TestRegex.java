@@ -7,7 +7,8 @@ public class TestRegex {
         String strin1 = "<a><b>dsfdsfds</b></a><c>dadasd</c>";
         System.out.println(tempStrin.matches("</.+><.+>"));
         System.out.println(strin1.matches("</a><c>"));
-        Pattern p = Pattern.compile("</a><c>");//todo find regex for this case
+        String regex = "</a><c>";
+        Pattern p = Pattern.compile(regex);//todo find regex for this case
         Matcher m = p.matcher(strin1);
         Matcher z = p.matcher(tempStrin);
         System.out.println(m.find());
