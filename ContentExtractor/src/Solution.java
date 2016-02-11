@@ -52,6 +52,15 @@ public class Solution {
         return temp;
     }
 
+//    public static ArrayList<String> makeArr(String line) {
+//        ArrayList<String> result = new ArrayList<>();
+//        if (ifMultiple) {
+//
+//        } else {
+//            result.add(line);
+//        }
+//        return result;
+//    }
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
@@ -60,15 +69,21 @@ public class Solution {
             String line = in.nextLine();
             Queue<String> openTags = new LinkedList<>();
             Stack<String> closeTags = new Stack<>();
-            findOpenTags(openTags, line);
-            String test1 = deleteOpenTags(openTags, line);
-            findCloseTags(closeTags, test1);
-            String result = deleteCloseTags(closeTags, test1);
-            if (tagsCorrect(openTags, closeTags)) {
-                System.out.println(result);
-            } else {
-                System.out.println("None");
-            }
+
+            //determine if strings has multiple lines
+//            if (!checkMultiple(line)) {
+//                findOpenTags(openTags, line);
+//                String test1 = deleteOpenTags(openTags, line);
+//                findCloseTags(closeTags, test1);
+//                String result = deleteCloseTags(closeTags, test1);
+//                if (tagsCorrect(openTags, closeTags)) {
+//                    System.out.println(result);
+//                } else {
+//                    System.out.println("None");
+//                }
+//            } else {
+
+//            }
 
             testCases--;
         }
