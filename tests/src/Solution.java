@@ -35,6 +35,9 @@ public class Solution {
                 } else if (openTag.equals(line.substring(startCloseTag + 2, endCloseTag))) {
                     System.out.println(line.substring(end + 1, startCloseTag));
                     end = endCloseTag + 1;
+                }else if(!openTag.equals(line.substring(startCloseTag + 2, endCloseTag))){
+                    System.out.println("None");
+                    end = endCloseTag + 1;
                 }
             }
             testCases--;
