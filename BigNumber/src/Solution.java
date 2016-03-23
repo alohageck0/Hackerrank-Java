@@ -9,5 +9,6 @@ public class Solution {
 
       System.out.println(A.add(B));
       System.out.println(A.multiply(B));
+
    }
 }
