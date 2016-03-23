@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/StringPractice/Anagrams/Anagrams.iml" filepath="$PROJECT_DIR$/StringPractice/Anagrams/Anagrams.iml" />
       <module fileurl="file://$PROJECT_DIR$/BigNumber/BigNumber.iml" filepath="$PROJECT_DIR$/BigNumber/BigNumber.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CollectionsChallenge/CollectionsChallenge.iml" filepath="$PROJECT_DIR$/CollectionsChallenge/CollectionsChallenge.iml" />
       <module fileurl="file://$PROJECT_DIR$/StringPractice/Compare/Compare.iml" filepath="$PROJECT_DIR$/StringPractice/Compare/Compare.iml" />
       <module fileurl="file://$PROJECT_DIR$/ContentExtractor/ContentExtractor.iml" filepath="$PROJECT_DIR$/ContentExtractor/ContentExtractor.iml" />
       <module fileurl="file://$PROJECT_DIR$/Hackerrank-Java.iml" filepath="$PROJECT_DIR$/Hackerrank-Java.iml" />
