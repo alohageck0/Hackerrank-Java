@@ -1,8 +1,6 @@
 package SortTest;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 class Student {
    private int id;
@@ -27,6 +25,8 @@ class Student {
    public double getCgpa() {
       return cgpa;
    }
+
+
 }
 
 //Complete the code
@@ -47,6 +47,27 @@ public class Solution {
          testCases--;
       }
 
+      Comparator<Student> comparator = new Comparator<Student>() {
+         @Override
+         public int compare(Student o1, Student o2) {
+//            System.out.println("Call");
+            if (o2.getCgpa() == o1.getCgpa()) {
+               if (o2.getFname().equals(o1.getFname())) {
+                  return o2.getId() - o1.getId();
+               } else {
+                  return o1.getFname().compareTo(o2.getFname());
+               }
+            } else {
+               if (o2.getCgpa() > o1.getCgpa()) {
+                  return 1;
+               } else {
+                  return -1;
+               }
+            }
+         }
+      };
+
+      Collections.sort(studentList,comparator);
       for (Student st : studentList) {
          System.out.println(st.getFname());
       }
