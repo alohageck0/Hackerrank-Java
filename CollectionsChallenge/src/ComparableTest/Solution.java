@@ -16,11 +16,7 @@ class Checker {
          if (o1.score == o2.score) {
             return o2.name.compareTo(o1.name);
          } else {
-            if (o1.score > o2.score) {
-               return -1;
-            } else {
-               return 1;
-            }
+            return o2.score - o1.score;
          }
       }
 
