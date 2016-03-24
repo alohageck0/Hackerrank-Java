@@ -10,9 +10,9 @@ import java.util.StringTokenizer;
 
 
 class Checker {
-   Comparator<Player> desc;
+   public Comparator<Player> desc;
 
-   Checker() {
+   public Checker() {
       this.desc = new Comparator<Player>() {
          @Override
          public int compare(Player o1, Player o2) {
