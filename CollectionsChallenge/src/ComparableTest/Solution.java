@@ -10,25 +10,22 @@ import java.util.StringTokenizer;
 
 
 class Checker {
-   public Comparator<Player> desc;
-
-   public Checker() {
-      this.desc = new Comparator<Player>() {
-         @Override
-         public int compare(Player o1, Player o2) {
-            if (o1.score == o2.score) {
-               return o2.name.compareTo(o1.name);
+   Comparator<Player> desc = new Comparator<Player>() {
+      @Override
+      public int compare(Player o1, Player o2) {
+         if (o1.score == o2.score) {
+            return o2.name.compareTo(o1.name);
+         } else {
+            if (o1.score > o2.score) {
+               return -1;
             } else {
-               if (o1.score > o2.score) {
-                  return -1;
-               } else {
-                  return 1;
-               }
+               return 1;
             }
          }
+      }
 
-      };
-   }
+   };
+
 }
 
 class Player {
