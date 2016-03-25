@@ -22,7 +22,7 @@ public class Solution {
       Printer myPrinter = new Printer();
       Integer[] intArray = {1, 2, 3};
       String[] stringArray = {"Hello", "World"};
-//      System.out.println(intArray);
+//      System.out.println(intArray);zzzzz
       myPrinter.printArray(intArray);
       myPrinter.printArray(stringArray);
       int count = 0;
