@@ -49,7 +49,6 @@ public class Solution {
       Comparator<Student> comparator = new Comparator<Student>() {
          @Override
          public int compare(Student o1, Student o2) {
-//            System.out.println("Call");
             if (o2.getCgpa() == o1.getCgpa()) {
                if (o2.getFname().equals(o1.getFname())) {
                   return o2.getId() - o1.getId();
