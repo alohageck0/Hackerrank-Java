@@ -21,6 +21,7 @@ public class Solution {
          int x = scanner.nextInt();
          int y = scanner.nextInt();
          int[] line = arrayList.get(x-1);
+
          try {
             System.out.println(line[y-1]);
          } catch (Exception e) {
