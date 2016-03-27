@@ -15,7 +15,7 @@ class Solution {
 
    }
 
-   public static boolean checkBalance(String string) {
+   private static boolean checkBalance(String string) {
       Stack<Integer> stack = new Stack<>();
       Map<Integer, Integer> map = new HashMap<>();
       map.put(123, 125);
@@ -23,17 +23,31 @@ class Solution {
       map.put(40, 41);
       boolean flag = true;
       if (string.length() % 2 != 0) {
-         flag = false;
-         return flag;
+         return false;
       }
       char[] chars = string.toCharArray();
       for (char cha : chars) {
+         if (stack.isEmpty()) {
+            if (!map.keySet().contains((int) cha)) {
+               flag = false;
+            } else {
+               stack.add((int) cha);
+            }
+         } else {
+            if (map.keySet().contains((int) cha)) {
+               stack.add((int) cha);
+            } else {
+               int currentChar = stack.pop();
 
+               if (map.get(currentChar) != (int) cha) {
+                  flag = false;
+               }
+            }
+         }
       }
-
-
       return flag;
    }
+
 }
 
 
