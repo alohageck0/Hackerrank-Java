@@ -10,6 +10,7 @@ class Solution {
       while (sc.hasNext()) {
          String input = sc.next();
          //Complete the code
+
          System.out.println(checkBalance(input));
       }
 
