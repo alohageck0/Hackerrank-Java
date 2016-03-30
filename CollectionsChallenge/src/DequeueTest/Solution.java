@@ -17,6 +17,9 @@ public class Solution {
       }
 
       while (deque.size() >= subarrayLength) {
+          if (maxNumberUniqueInt>deque.size()){
+              break;
+          }
          Set<Integer> set = new HashSet<>();
          Iterator<Integer> iterator = deque.iterator();
          for (int i = 0; i < subarrayLength; i++) {
