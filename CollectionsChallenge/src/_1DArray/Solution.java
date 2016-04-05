@@ -28,29 +28,41 @@ public class Solution {
          return false;
       }
       while (true) {
+
+         if (canNotMove(position, jumpNumber, arr)) {
+            return false;
+         }
          if (position >= arr.length) {
             return true;
          }
-         if (position < 0) {
-            return false;
-         }
-         if (arr[position + 1] == 1 && arr[position + jumpNumber] == 1) {
-            position = arr[position - 1];
-         } else if (arr[position + jumpNumber] == 0) {
-            position += jumpNumber;
+         if (canMove(position, jumpNumber, arr)) {
+            if (position + jumpNumber >= arr.length || arr[position + jumpNumber] == 0) {
+               position += jumpNumber;
+            } else {
+               position++;
+            }
          } else {
-            position++;
+            position--;
          }
 
 
       }
    }
 
-   private static boolean canMove(int number) {
-      if (number == 0) {
+   private static boolean canMove(int position, int jump, int[] arr) {
+      if (arr[position + 1] == 0 || arr[position + jump] == 0 || position + 1 >= arr.length || position + jump >= arr.length) {
          return true;
       } else {
          return false;
       }
+   }
+
+   private static boolean canNotMove(int position, int jump, int[] arr) {
+      if (!canMove(position, jump, arr)) {
+         if (arr[position - 1] == 1 || position < 0 || position - 1 < 0 || arr[position - 1] == 1) {
+            return true;
+         }
+      }
+      return false;
    }
 }
