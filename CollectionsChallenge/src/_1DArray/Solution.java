@@ -14,7 +14,43 @@ public class Solution {
          for (int j = 0; j < arrLength; j++) {
             arr[j] = in.nextInt();
          }
+         if (isPossible(arr, jump)) {
+            System.out.println("YES");
+         } else {
+            System.out.println("NO");
+         }
+      }
+   }
 
+   private static boolean isPossible(int[] arr, int jumpNumber) {
+      int position = 0;
+      if (arr[1] == 1 && arr[jumpNumber] == 1) {
+         return false;
+      }
+      while (true) {
+         if (position >= arr.length) {
+            return true;
+         }
+         if (position < 0) {
+            return false;
+         }
+         if (arr[position + 1] == 1 && arr[position + jumpNumber] == 1) {
+            position = arr[position - 1];
+         } else if (arr[position + jumpNumber] == 0) {
+            position += jumpNumber;
+         } else {
+            position++;
+         }
+
+
+      }
+   }
+
+   private static boolean canMove(int number) {
+      if (number == 0) {
+         return true;
+      } else {
+         return false;
       }
    }
 }
