@@ -5,8 +5,9 @@ public class ReplaceChars {
 
 
       String testString = "abcababaccababsssacbb";
+//      String testString = null;
       char testChar = 'b';
-      System.out.println(replace(testString, testChar, 'z'));
+//      System.out.println(replace(testString, testChar, 'z'));
       System.out.println(replaceRec(testString, testChar, 'z'));
    }
 
@@ -16,7 +17,7 @@ public class ReplaceChars {
       for (int i = 0; i < arr.length; i++) {
          if (arr[i] == oldChar) {
             stringBuilder.append(newChar);
-         }else {
+         } else {
             stringBuilder.append(arr[i]);
          }
       }
@@ -24,7 +25,7 @@ public class ReplaceChars {
    }
 
    static String replaceRec(String string, char oldChar, char newChar) {
-      if (string.length() > 0) {
+      if (string != null && string.length() > 0) {
          if (string.charAt(0) == oldChar) {
             return newChar + replaceRec(string.substring(1), oldChar, newChar);
          } else {
