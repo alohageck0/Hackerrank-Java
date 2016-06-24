@@ -33,13 +33,16 @@ public class ProductOfInts {
       long startTime = System.nanoTime();
 
       int[] arrProducts = new int[arr.length];
-      int beforeMultiplied = 1;
-      int afterMultiplied = 1;
-      for (int i = 0; i < arr.length; i++) {
-         for (int j = 0; j < arr.length; j++) {
+      int productBefore = 1;
+      for (int i = 0; i < arr.length ; i++) {
+         arrProducts[i] = productBefore;
+         productBefore *= arr[i];
+      }
 
-
-         }
+      int productAfter = 1;
+      for (int i = arr.length - 1; i >= 0; i--) {
+         arrProducts[i] *= productAfter;
+         productAfter *= arr[i];
       }
       long stopTime = System.nanoTime();
       System.out.println(stopTime - startTime);
