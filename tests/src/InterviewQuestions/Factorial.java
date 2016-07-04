@@ -12,7 +12,7 @@ public class Factorial {
       Assert.assertEquals(getFactorialRecursive(-122), 0);
    }
 
-   static int getFactorialLoop(int number) {
+   private int getFactorialLoop(int number) {
       int result = number;
       while (number > 1) {
          result *= (number - 1);
@@ -21,7 +21,7 @@ public class Factorial {
       return result;
    }
 
-   static int getFactorialRecursive(int number) {
+   private int getFactorialRecursive(int number) {
       if (number < 0) {
          return 0;
       }
