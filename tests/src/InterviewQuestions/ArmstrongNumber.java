@@ -11,8 +11,10 @@ public class ArmstrongNumber {
 
    @Test
    public void testArmstorng() {
-      Assert.assertTrue(isArmstrong(407));
-      Assert.assertFalse(isArmstrong(407));
+//      Assert.assertTrue(isArmstrong(407));
+      Assert.assertTrue(isArmstrongThree(407));
+      Assert.assertTrue(isArmstrongThree(371));
+      Assert.assertTrue(isArmstrongThree(370));
    }
 
    boolean isArmstrong(int number) {
@@ -25,6 +27,25 @@ public class ArmstrongNumber {
       if (number == sumOfCubes) {
          result = true;
       }
+      System.out.println(sumOfCubes);
+      return result;
+   }
+
+   boolean isArmstrongThree(int number) {
+      boolean result = false;
+      //407
+      int lastDigit;
+      int num = number;
+      int sum = 0;
+      while (num != 0) {
+         lastDigit = num % 10;
+         num /= 10;
+         sum += lastDigit * lastDigit * lastDigit;
+      }
+      if (sum == number) {
+         result = true;
+      }
+      System.out.println(sum);
       return result;
    }
 }
