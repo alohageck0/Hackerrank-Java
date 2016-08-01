@@ -1,16 +1,32 @@
 public class LinkedListPrint {
-   class Node {
-      int data;
-      Node next;
-   }
+
 
    public static void main(String[] args) {
+      Node head = new Node();
+      head.data = 0;
+      Node n1 = new Node();
+      Node n2 = new Node();
+      Node n3 = new Node();
+      Node n4 = new Node();
+      n1.data = 1;
+      n2.data = 2;
+      n3.data = 3;
+      n4.data = 4;
+      head.next = n1;
+      n1.next = n2;
+      n2.next = n3;
+      n3.next = n4;
 
+      LinkedListPrint test = new LinkedListPrint();
+      test.Print(head);
+      head = test.InsertNth(head, 99, 0);
+      System.out.println();
+      test.Print(head);
    }
 
    public void Print(Node head) {
       if (head != null) {
-         System.out.println(head.data);
+         System.out.print(head.data + " --> ");
          Print(head.next);
       }
    }
@@ -53,8 +69,7 @@ public class LinkedListPrint {
       if (position == 0) {
          newNode.next = head;
          head = newNode;
-      }
-      if (position == 1) {
+      } else if (position == 1) {
          newNode.next = head.next;
          head.next = newNode;
       } else {
@@ -62,4 +77,6 @@ public class LinkedListPrint {
       }
       return head;
    }
+
+
 }
