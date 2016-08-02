@@ -3,6 +3,7 @@ public class LinkedListPrint {
 
    public static void main(String[] args) {
       Node head = new Node();
+      Node headNull = null;
       head.data = 0;
       Node n1 = new Node();
       Node n2 = new Node();
@@ -22,10 +23,12 @@ public class LinkedListPrint {
 //      head = test.InsertNth(head, 99, 0);
       System.out.println();
 //      test.Print(head);
-      head = test.delete(head, 3);
-      test.Print(head); head = test.delete(head, 0);
-      test.Print(head);
-
+//      head = test.delete(head, 3);
+//      test.Print(head);
+//      head = test.delete(head, 0);
+//      test.Print(head);
+      test.ReversePrint(head);
+      test.ReversePrint(headNull);
    }
 
    public void Print(Node head) {
@@ -95,5 +98,17 @@ public class LinkedListPrint {
          delete(head.next, position - 1);
       }
       return head;
+   }
+
+   void ReversePrint(Node head) {
+      if (head != null) {
+         if (head.next != null) {
+            ReversePrint(head.next);
+            System.out.println(head.data);
+         }else {
+            System.out.println(head.data);
+         }
+      }
+
    }
 }
