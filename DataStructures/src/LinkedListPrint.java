@@ -19,16 +19,16 @@ public class LinkedListPrint {
       n3.next = n4;
 
       LinkedListPrint test = new LinkedListPrint();
-      test.Print(head);
+//      test.Print(head);
 //      head = test.InsertNth(head, 99, 0);
       System.out.println();
 //      test.Print(head);
 //      head = test.delete(head, 3);
 //      test.Print(head);
 //      head = test.delete(head, 0);
-//      test.Print(head);
-      test.ReversePrint(head);
-      test.ReversePrint(headNull);
+      test.Print(head);
+      head = test.Reverse(head);
+      test.Print(head);
    }
 
    public void Print(Node head) {
@@ -65,7 +65,6 @@ public class LinkedListPrint {
       return newHead;
    }
 
-   //todo not finished
    Node InsertNth(Node head, int data, int position) {
       Node newNode = new Node();
       newNode.data = data;
@@ -105,10 +104,20 @@ public class LinkedListPrint {
          if (head.next != null) {
             ReversePrint(head.next);
             System.out.println(head.data);
-         }else {
+         } else {
             System.out.println(head.data);
          }
       }
+   }
+
+   Node Reverse(Node head) {
+      if (head == null || head.next == null) {
+         return head;
+      }
+      Node reverse = Reverse(head.next);
+      head.next.next = head;
+      head.next = null;
+      return reverse;
 
    }
 }
