@@ -19,9 +19,13 @@ public class LinkedListPrint {
 
       LinkedListPrint test = new LinkedListPrint();
       test.Print(head);
-      head = test.InsertNth(head, 99, 0);
+//      head = test.InsertNth(head, 99, 0);
       System.out.println();
+//      test.Print(head);
+      head = test.delete(head, 3);
+      test.Print(head); head = test.delete(head, 0);
       test.Print(head);
+
    }
 
    public void Print(Node head) {
@@ -78,5 +82,18 @@ public class LinkedListPrint {
       return head;
    }
 
-
+   Node delete(Node head, int position) {
+      if (position == 0) {
+         return head.next;
+      } else if (position == 1) {
+         if (head.next.next != null) {
+            head.next = head.next.next;
+         } else {
+            head.next = null;
+         }
+      } else {
+         delete(head.next, position - 1);
+      }
+      return head;
+   }
 }
