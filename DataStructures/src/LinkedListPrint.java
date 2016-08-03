@@ -3,20 +3,33 @@ public class LinkedListPrint {
 
    public static void main(String[] args) {
       Node head = new Node();
-      Node headNull = null;
+      Node headB = new Node();
       head.data = 0;
+      headB.data = 0;
       Node n1 = new Node();
+      Node na1 = new Node();
       Node n2 = new Node();
+      Node na2 = new Node();
       Node n3 = new Node();
+      Node na3 = new Node();
       Node n4 = new Node();
+      Node na4 = new Node();
       n1.data = 1;
+      na1.data = 1;
+      na2.data = 2;
       n2.data = 2;
+      na3.data = 3;
       n3.data = 3;
+      na4.data = 4;
       n4.data = 4;
       head.next = n1;
+      headB.next = na1;
       n1.next = n2;
+      na1.next = na2;
       n2.next = n3;
+      na2.next = na3;
       n3.next = n4;
+      na3.next = na4;
 
       LinkedListPrint test = new LinkedListPrint();
 //      test.Print(head);
@@ -27,8 +40,10 @@ public class LinkedListPrint {
 //      test.Print(head);
 //      head = test.delete(head, 0);
       test.Print(head);
-      head = test.Reverse(head);
+//      head = test.Reverse(head);
       test.Print(head);
+      System.out.println();
+      System.out.println(test.CompareLists(head, headB));
    }
 
    public void Print(Node head) {
@@ -119,5 +134,28 @@ public class LinkedListPrint {
       head.next = null;
       return reverse;
 
+   }
+
+   int CompareLists(Node headA, Node headB) {
+      if (headA == null || headB == null) {
+         return 0;
+      }
+
+      if (headA.next != null && headB.next != null) {
+         if (headA.data == headB.data) {
+            CompareLists(headA.next, headB.next);
+         } else {
+            return 0;
+         }
+      } else if (headA.next == null) {
+         if (headB.next != null) {
+            return 0;
+         }
+      } else if (headB.next == null) {
+         if (headA.next != null) {
+            return 0;
+         }
+      }
+      return 1;
    }
 }
