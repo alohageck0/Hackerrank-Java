@@ -28,7 +28,7 @@ public class LinkedListPrint {
       na1.next = na2;
       n2.next = n3;
       na2.next = na3;
-      n3.next = n4;
+//      n3.next = n4;
       na3.next = na4;
 
       LinkedListPrint test = new LinkedListPrint();
@@ -41,7 +41,8 @@ public class LinkedListPrint {
 //      head = test.delete(head, 0);
       test.Print(head);
 //      head = test.Reverse(head);
-      test.Print(head);
+      System.out.println();
+      test.Print(headB);
       System.out.println();
       System.out.println(test.CompareLists(head, headB));
    }
@@ -137,25 +138,21 @@ public class LinkedListPrint {
    }
 
    int CompareLists(Node headA, Node headB) {
+      int result = 1;
       if (headA == null || headB == null) {
          return 0;
       }
-
-      if (headA.next != null && headB.next != null) {
-         if (headA.data == headB.data) {
-            CompareLists(headA.next, headB.next);
+      if (headA.data == headB.data) {
+         if (headA.next != null && headB.next != null) {
+            result = CompareLists(headA.next, headB.next);
          } else {
-            return 0;
+            if (headB.next != null || headA.next != null) {
+               return 0;
+            }
          }
-      } else if (headA.next == null) {
-         if (headB.next != null) {
-            return 0;
-         }
-      } else if (headB.next == null) {
-         if (headA.next != null) {
-            return 0;
-         }
+      } else {
+         return 0;
       }
-      return 1;
+      return result;
    }
 }
