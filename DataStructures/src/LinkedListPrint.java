@@ -41,10 +41,11 @@ public class LinkedListPrint {
 //      head = test.delete(head, 0);
       test.Print(head);
 //      head = test.Reverse(head);
+      System.out.println("Print h");
+//      test.Print(headB);
       System.out.println();
-      test.Print(headB);
-      System.out.println();
-      System.out.println(test.CompareLists(head, headB));
+      head = test.MergeLists(head, headB);
+      test.Print(head);
    }
 
    public void Print(Node head) {
@@ -154,5 +155,21 @@ public class LinkedListPrint {
          return 0;
       }
       return result;
+   }
+
+   Node MergeLists(Node headA, Node headB) {
+      if (headA == null) {
+         return headB;
+      } else if (headB == null) {
+         return headA;
+      }
+
+      if (headA.data <= headB.data) {
+         headA.next = MergeLists(headA.next, headB);
+         return headA;
+      } else {
+         headB.next = MergeLists(headA, headB.next);
+         return headB;
+      }
    }
 }
