@@ -1,13 +1,14 @@
 package InterviewQuestions.book.stringsAndArrays;
 
 import static org.testng.Assert.*;
+
 import org.testng.annotations.Test;
 
 public class isUnique {
 
 
    @Test
-   public void test(){
+   public void test() {
       assertTrue(isUnique("azxcvbmret"));
       assertFalse(isUnique("asasddc"));
    }
@@ -21,9 +22,9 @@ public class isUnique {
          int asciiCode = input.charAt(i);
          if (asciiCodeArray[asciiCode]) {
             return false;
-         } else {
-            asciiCodeArray[asciiCode] = true;
          }
+         asciiCodeArray[asciiCode] = true;
+
       }
       return true;
    }
