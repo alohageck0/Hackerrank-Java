@@ -1,4 +1,4 @@
-package InterviewQuestions.book.stringsAndArrays.linkedLists;
+package InterviewQuestions.book.stringsAndArrays;
 
 import org.testng.annotations.Test;
 
