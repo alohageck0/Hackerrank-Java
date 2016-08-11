@@ -18,7 +18,7 @@ public class OneAway {
    }
 
    public boolean ifOneAwayEdit(String fisrtStr, String secondStr) {
-      if (Math.abs(fisrtStr.length() - secondStr.length()) > 2) {
+      if (Math.abs(fisrtStr.length() - secondStr.length()) > 1) {
          return false;
       } else if (fisrtStr.length() == secondStr.length()) {
          if (fisrtStr.equals(secondStr)) {
