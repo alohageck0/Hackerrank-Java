@@ -11,6 +11,21 @@ public class PalindromePermutation {
       assertTrue(ifPalindromPermutation("Tact Coa"));
       assertFalse(ifPalindromPermutation("Tact3 Coa"));
       assertTrue(ifPalindromPermutation("Tact Coa"));
+      System.out.println(getSubstring("tesla", "slate"));
+   }
+
+   public String getSubstring(String s1, String s2) {
+      int stringLength = 0;
+      String result = "";
+      for (int i = 0; i < s1.length(); i++) {
+         String testSubstring = s1.substring(i, s1.length() - 1);
+         if (s2.contains(result)) {
+            if (result.length()>stringLength){
+               result = testSubstring;
+            }
+         }
+      }
+      return result;
    }
 
    public boolean ifPalindromPermutation(String input) {
