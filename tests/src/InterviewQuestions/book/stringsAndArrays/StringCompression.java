@@ -11,6 +11,9 @@ public class StringCompression {
    }
 
    public String compressString(String input) {
+      if (input == null) {
+         return null;
+      }
       StringBuilder compressedString = new StringBuilder();
       int counter = 0;
       if (input.length() > 0) {
@@ -25,13 +28,10 @@ public class StringCompression {
          }
          partiallyCompresed = lastChar + String.valueOf(counter);
          return compressString(input.substring(0, input.length() - counter)) + partiallyCompresed;
-      }
-      String output = compressedString.toString();
-      if (output.length() > input.length()) {
-         return input;
       } else {
-         return output;
+         return "";
       }
+
    }
 
 
