@@ -7,10 +7,32 @@ public class StringCompression {
 
    @Test
    public void test() {
+      Assert.assertEquals(compressStringRecursive("aabcccccaaa"), "a2b1c5a3");
+      Assert.assertEquals(compressString("aabcccccaaa"), "a2b1c5a3");
       Assert.assertEquals(compressString("aabcccccaaa"), "a2b1c5a3");
    }
 
-   public String compressString(String input) {
+   private String compressString(String input) {
+      StringBuilder compressedString = new StringBuilder();
+      int counter = 0;
+      int compressedLength = 0;
+      for (int i = 0; i < input.length(); i++) {
+         if (compressedLength > input.length()) {
+            return input;
+         }
+         counter++;
+         if (i + 1 >= input.length() || input.charAt(i) != input.charAt(i + 1)) {
+            compressedString.append(input.charAt(i));
+            compressedString.append(counter);
+            counter = 0;
+
+         }
+      }
+      String output = compressedString.toString();
+      return (output.length() > input.length()) ? input : output;
+   }
+
+   public String compressStringRecursive(String input) {
       if (input == null) {
          return null;
       }
@@ -27,7 +49,7 @@ public class StringCompression {
             }
          }
          partiallyCompresed = lastChar + String.valueOf(counter);
-         return compressString(input.substring(0, input.length() - counter)) + partiallyCompresed;
+         return compressStringRecursive(input.substring(0, input.length() - counter)) + partiallyCompresed;
       } else {
          return "";
       }
