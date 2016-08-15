@@ -15,12 +15,22 @@ public class RotateMatrix {
    @Test
    public void test() {
       RotateMatrix m = new RotateMatrix();
+      System.out.println(Arrays.deepToString(m.getMatrix()).replaceAll("],","\n"));
       m.rotateMatrix();
-      System.out.println(Arrays.deepToString(m.getMatrix()));
+      System.out.println(Arrays.deepToString(m.getMatrix()).replaceAll("],","\n"));
    }
 
-
+//todo other pixels in layers
    public void rotateMatrix() {
+      int layers = (int) Math.sqrt(matrix.length);
+      int max = matrix.length - 1;
+      for (int i = 0; i < layers; i++) {
+         int temp = matrix[max - i][i];
+         matrix[max - i][i] = matrix[max - i][max - i];
+         matrix[max - i][max - i] = matrix[i][max - i];
+         matrix[i][max - i] = matrix[i][i];
+         matrix[i][i] = temp;
+      }
    }
 
 }
