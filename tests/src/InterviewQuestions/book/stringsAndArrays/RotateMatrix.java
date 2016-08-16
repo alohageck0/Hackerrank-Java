@@ -40,7 +40,9 @@ public class RotateMatrix {
 
             matrix[i][max] = temp;
          }
-         max--;
+
+         //edit here to roatate center
+         max -= layer;
       }
       return matrix;
    }
