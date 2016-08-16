@@ -7,6 +7,7 @@ import java.util.Arrays;
 public class RotateMatrix {
 
    private int[][] matrix = {{10, 20, 30, 40}, {11, 21, 31, 41}, {12, 22, 32, 42}, {13, 23, 33, 43}};
+   private int[][] matrix1 = {{21, 31}, {22, 32}};
 
    public int[][] getMatrix() {
       return matrix;
@@ -15,22 +16,33 @@ public class RotateMatrix {
    @Test
    public void test() {
       RotateMatrix m = new RotateMatrix();
-      System.out.println(Arrays.deepToString(m.getMatrix()).replaceAll("],","\n"));
-      m.rotateMatrix();
-      System.out.println(Arrays.deepToString(m.getMatrix()).replaceAll("],","\n"));
+      System.out.println(Arrays.deepToString(matrix).replaceAll("],", "\n"));
+      System.out.println(Arrays.deepToString(m.rotateMatrix(matrix)).replaceAll("],", "\n"));
+      System.out.println(Arrays.deepToString(matrix1).replaceAll("],", "\n"));
+      System.out.println(Arrays.deepToString(m.rotateMatrix(matrix1)).replaceAll("],", "\n"));
    }
 
-//todo other pixels in layers
-   public void rotateMatrix() {
-      int layers = (int) Math.sqrt(matrix.length);
+   //todo edit to swap inner
+   public int[][] rotateMatrix(int[][] matrix) {
+      int layers = matrix.length / 2;
       int max = matrix.length - 1;
-      for (int i = 0; i < layers; i++) {
-         int temp = matrix[max - i][i];
-         matrix[max - i][i] = matrix[max - i][max - i];
-         matrix[max - i][max - i] = matrix[i][max - i];
-         matrix[i][max - i] = matrix[i][i];
-         matrix[i][i] = temp;
+      for (int layer = 0; layer < layers; layer++) {
+         for (int i = layer; i < max; i++) {
+            int temp = matrix[layer][i];
+            //left - to top
+            matrix[layer][i] = matrix[max - i][layer];
+
+            //bottom to left
+            matrix[max - i][layer] = matrix[max - layer][max - i];
+
+            //right to bottom
+            matrix[max - layer][max - i] = matrix[i][max];
+
+            matrix[i][max] = temp;
+         }
+         max--;
       }
+      return matrix;
    }
 
 }
