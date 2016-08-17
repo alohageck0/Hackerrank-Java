@@ -25,8 +25,9 @@ public class RotateMatrix {
    //todo edit to swap inner
    public int[][] rotateMatrix(int[][] matrix) {
       int layers = matrix.length / 2;
-      int max = matrix.length - 1;
+      int max = matrix.length;
       for (int layer = 0; layer < layers; layer++) {
+         max =max-1-layer;
          for (int i = layer; i < max; i++) {
             int temp = matrix[layer][i];
             //left - to top
@@ -42,7 +43,6 @@ public class RotateMatrix {
          }
 
          //edit here to roatate center
-         max -= layer;
       }
       return matrix;
    }
