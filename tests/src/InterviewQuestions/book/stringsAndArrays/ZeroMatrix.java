@@ -33,15 +33,27 @@ public class ZeroMatrix {
             }
          }
       }
-      for (int i = 0; i < matrix.length; i++) {
-         for (int j = 0; j < matrix[i].length; j++) {
-            if (zeroRows[i] || zeroCols[j]) {
-               matrix[i][j] = 0;
-            }
-         }
+      for (int i = 0; i < zeroRows.length; i++) {
+         if (zeroRows[i]) nullifyRows(matrix, i);
+      }
+      for (int i = 0; i < zeroCols.length; i++) {
+         if (zeroCols[i]) nullifyCols(matrix, i);
       }
 
 
       return matrix;
+   }
+
+   private void nullifyRows(int[][] matrix, int row) {
+      for (int j = 0; j < matrix[0].length; j++) {
+         matrix[row][j] = 0;
+      }
+   }
+
+
+   private void nullifyCols(int[][] matrix, int col) {
+      for (int i = 0; i < matrix.length; i++) {
+         matrix[i][col] = 0;
+      }
    }
 }
