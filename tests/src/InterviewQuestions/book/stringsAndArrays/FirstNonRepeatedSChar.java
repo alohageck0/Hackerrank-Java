@@ -5,10 +5,9 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Timer;
+import java.util.*;
 
+import static com.sun.tools.javac.jvm.ByteCodes.new_;
 import static com.sun.tools.javac.jvm.ByteCodes.ret;
 
 public class FirstNonRepeatedSChar {
@@ -31,9 +30,14 @@ public class FirstNonRepeatedSChar {
 //      Assert.assertEquals(getFirstNonRepeatedChar("agsdasdffv"), 'g');
 //      Assert.assertEquals(getNonRepRecursive("agsdasdffv"), "g");
    }
+
    @Test
-   public void test1(){
+   public void test1() {
       Assert.assertEquals(getNonRepRecursive("asdasdfasdasdasdasdasasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasddasdasdasdasdasdsadasdasdasdasdasdsadfv"), "v");
+
+   }@Test
+   public void test2() {
+      Assert.assertEquals(getNon("asdasdfasdasdasdasdasasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasddasdasdasdasdasdsadasdasdasdasdasdsadfv"), "v");
 
    }
 
@@ -75,5 +79,23 @@ public class FirstNonRepeatedSChar {
          }
          return String.valueOf(c);
       }
+   }
+
+   public String getNon(String input) {
+      Set<Character> set = new HashSet<>();
+      List<Character> list = new ArrayList<>();
+      for (int i = 0; i < input.length(); i++) {
+         char test = input.charAt(i);
+         if (set.contains(test)) {
+            continue;
+         }
+         if (list.contains(test)) {
+            list.remove(Character.valueOf(test));
+            set.add(test);
+         } else {
+            list.add(test);
+         }
+      }
+      return String.valueOf(list.get(0));
    }
 }
