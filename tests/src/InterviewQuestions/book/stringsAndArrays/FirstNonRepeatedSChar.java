@@ -1,26 +1,40 @@
 package InterviewQuestions.book.stringsAndArrays;
 
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Timer;
 
 import static com.sun.tools.javac.jvm.ByteCodes.ret;
 
 public class FirstNonRepeatedSChar {
+   long start, finish;
+
+   @BeforeMethod
+   public void start() {
+      start = System.nanoTime();
+   }
+
+   @AfterMethod
+   public void end() {
+      finish = System.nanoTime();
+      System.out.println(finish - start);
+   }
 
    @Test
    public void test() {
-      String test = "w";
-      String test1 = "";
-      Assert.assertEquals(getFirstNonRepeatedChar("asdasdffv"), 'v');
-      Assert.assertEquals(getNonRepRecursive("asdasdffv"), "v");
-      Assert.assertEquals(getFirstNonRepeatedChar("agsdasdffv"), 'g');
-      Assert.assertEquals(getNonRepRecursive("agsdasdffv"), "g");
-      Assert.assertEquals(getFirstNonRepeatedChar("agsdasdffv"), 'g');
-      Assert.assertEquals(getFirstNonRepeatedChar(test), 'w');
-      Assert.assertEquals(getFirstNonRepeatedChar(test1), ' ');
+      Assert.assertEquals(getFirstNonRepeatedChar("asdasdfasdasdasdasdasasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasddasdasdasdasdasdsadasdasdasdasdasdsadfv"), 'v');
+//      Assert.assertEquals(getFirstNonRepeatedChar("agsdasdffv"), 'g');
+//      Assert.assertEquals(getNonRepRecursive("agsdasdffv"), "g");
+   }
+   @Test
+   public void test1(){
+      Assert.assertEquals(getNonRepRecursive("asdasdfasdasdasdasdasasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasddasdasdasdasdasdsadasdasdasdasdasdsadfv"), "v");
+
    }
 
    public char getFirstNonRepeatedChar(String input) {
