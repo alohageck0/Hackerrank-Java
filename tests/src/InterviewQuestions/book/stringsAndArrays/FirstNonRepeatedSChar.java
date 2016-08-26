@@ -15,7 +15,9 @@ public class FirstNonRepeatedSChar {
       String test = "w";
       String test1 = "";
       Assert.assertEquals(getFirstNonRepeatedChar("asdasdffv"), 'v');
+      Assert.assertEquals(getNonRepRecursive("asdasdffv"), "v");
       Assert.assertEquals(getFirstNonRepeatedChar("agsdasdffv"), 'g');
+      Assert.assertEquals(getNonRepRecursive("agsdasdffv"), "g");
       Assert.assertEquals(getFirstNonRepeatedChar("agsdasdffv"), 'g');
       Assert.assertEquals(getFirstNonRepeatedChar(test), 'w');
       Assert.assertEquals(getFirstNonRepeatedChar(test1), ' ');
@@ -44,8 +46,20 @@ public class FirstNonRepeatedSChar {
             }
          }
       }
-
       return result;
    }
 
+   public String getNonRepRecursive(String input) {
+      if (input.length() == 1) {
+         return input;
+      } else {
+         char c = input.charAt(0);
+         for (int i = 1; i < input.length(); i++) {
+            if (c == input.charAt(i)) {
+               return getNonRepRecursive(input.replaceAll(String.valueOf(c), ""));
+            }
+         }
+         return String.valueOf(c);
+      }
+   }
 }
