@@ -25,7 +25,8 @@ public class OnlyDigits {
    }
 
    public boolean ifContainsDigitsRegEx(String input) {
-      if (input.matches("(.)*(\\d)+(.)*")) {
+      Pattern pattern = Pattern.compile(".*(\\d)+.*");
+      if (pattern.matcher(input).matches()) {
          return true;
       } else {
          return false;
