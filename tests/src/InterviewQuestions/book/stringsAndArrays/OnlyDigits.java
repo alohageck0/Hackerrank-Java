@@ -3,14 +3,16 @@ package InterviewQuestions.book.stringsAndArrays;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.regex.Pattern;
+
 public class OnlyDigits {
 
    @Test
    public void test() {
-      Assert.assertTrue(ifContainsDigits("ldl3d"));
-      Assert.assertTrue(ifContainsDigits("ldld4"));
-      Assert.assertTrue(ifContainsDigits("1ldld"));
-      Assert.assertFalse(ifContainsDigits("ldld"));
+      Assert.assertTrue(ifContainsDigitsRegEx("ldl3d"));
+      Assert.assertTrue(ifContainsDigitsRegEx("ldld4"));
+      Assert.assertTrue(ifContainsDigitsRegEx("1ldld"));
+      Assert.assertFalse(ifContainsDigitsRegEx("ldld"));
    }
 
    public boolean ifContainsDigits(String input) {
@@ -20,5 +22,13 @@ public class OnlyDigits {
          }
       }
       return false;
+   }
+
+   public boolean ifContainsDigitsRegEx(String input) {
+      if (input.matches("(.)*(\\d)+(.)*")) {
+         return true;
+      } else {
+         return false;
+      }
    }
 }
