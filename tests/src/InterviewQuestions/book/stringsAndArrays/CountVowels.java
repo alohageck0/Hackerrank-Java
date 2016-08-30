@@ -17,21 +17,21 @@ public class CountVowels {
 
    public int countVowels(String input) {
       int count = 0;
-      for (int i = 0; i < input.length(); i++) {
-         switch ((int) input.charAt(i)) {
-            case (int) 'a':
+      for (char c:input.toCharArray()) {
+         switch (c) {
+            case 'a':
                count++;
                break;
-            case (int) 'u':
+            case 'u':
                count++;
                break;
-            case (int) 'i':
+            case 'i':
                count++;
                break;
-            case (int) 'o':
+            case 'o':
                count++;
                break;
-            case (int) 'e':
+            case 'e':
                count++;
                break;
          }
