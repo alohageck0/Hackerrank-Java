@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 public class CountTwos {
 
    @Test
-   public void test(){
+   public void test() {
       System.out.println(count(4));
       System.out.println(count(0));
       System.out.println(count(44));
@@ -21,9 +21,9 @@ public class CountTwos {
 
    public int howManyTwosInNumber(int number) {
       int count = 0;
-      char[] digits = String.valueOf(number).toCharArray();
-      for (char digit : digits) {
-         if (digit == '2') {
+      String numberString = String.valueOf(number);
+      for (int i = 0; i < numberString.length(); i++) {
+         if (numberString.charAt(i) == '2') {
             count++;
          }
       }
