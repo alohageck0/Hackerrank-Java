@@ -19,7 +19,7 @@ public class CalculateNumbersInString {
 
 //      System.out.println(findLastDigitIndex("11aa22bb33dd44", 4));
    }
-
+//todo debug whole number
    private int countNumbers(String input) {
       int result = 0;
       for (int i = 0; i < input.length(); i++) {
