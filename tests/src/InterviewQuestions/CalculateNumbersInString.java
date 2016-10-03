@@ -11,6 +11,11 @@ public class CalculateNumbersInString {
    @Test
    public void test() {
       Assert.assertEquals(countNumbers("11aa22bb33dd44"), 110);
+      Assert.assertEquals(countNumbers("dfsd7788fsdf733sdfsd93"), 8614);
+      Assert.assertEquals(countNumbers("sdf7sdf7s7d8f87sdf78s78d"), 272);
+      Assert.assertEquals(countNumbers("cs672njcd992cd9cd0"), 1673);
+      Assert.assertEquals(countNumbers("aaa100"), 100);
+      Assert.assertEquals(countNumbers("304022993"), 304022993);
 
 //      System.out.println(findLastDigitIndex("11aa22bb33dd44", 4));
    }
