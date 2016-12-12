@@ -28,7 +28,7 @@ public class CountOfPositives {
 
    public static int[] countPositivesSumNegatives(int[] input) {
       int[] result = new int[2];
-      if (input == null) {
+      if (input == null || input.length == 0) {
          return new int[0];
       }
       for (int number : input) {
