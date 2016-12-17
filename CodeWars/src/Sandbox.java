@@ -4,5 +4,7 @@ public class Sandbox {
       double rate = 0.15;
       int time = 2;
       System.out.println(initial * Math.exp(-rate * time));
+
+
    }
 }

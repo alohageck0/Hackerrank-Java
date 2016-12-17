@@ -15,13 +15,16 @@ public class SumDigPower {
       for (long number = a; number <= b; number++) {
 
          char[] arrayOfDigits = String.valueOf(number).toCharArray();
-         //handle miltiple digits numbers
+         if (arrayOfDigits.length == 1) {
+            result.add(number);
+            continue;
+         }
          long sum = 0;
-         for (int power = arrayOfDigits.length - 1; power >= 0; power--) {
-            long digit = arrayOfDigits[power];
-            long square = digit * power;
-            sum += square;
-            if (sum >= number) {
+         for (int index = arrayOfDigits.length - 1; index >= 0; index--) {
+            long digit = Character.getNumericValue(arrayOfDigits[index]);
+            double digitInPow = Math.pow(digit, (index + 1));
+            sum += digitInPow;
+            if (sum > number) {
                break;
             }
          }
