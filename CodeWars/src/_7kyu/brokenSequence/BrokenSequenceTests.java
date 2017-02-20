@@ -9,6 +9,7 @@ public class BrokenSequenceTests{
    @Test
    public void test1() {
       assertEquals("", 4, new BrokenSequence().findMissingNumber("1 2 3 5"));
+      assertEquals("", 4, new BrokenSequence().findMissingNumber("1 3 2 5 7 8"));
    }
 
    @Test
