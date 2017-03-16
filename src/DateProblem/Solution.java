@@ -3,6 +3,9 @@ package DateProblem;
 public class Solution {
 
    public static SimpleDate getNextQuarter(SimpleDate date) {
+
+
+
       if (date.getMonth() < 4) {
          return new SimpleDate(date.getYear(), 4, 1);
       } else if (date.getMonth() < 7) {
