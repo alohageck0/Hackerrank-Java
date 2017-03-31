@@ -25,7 +25,15 @@ class Solution {
             int j = i;
             if (j < arr.length - 1) {
                int nextInt = arr[j + 1]; //2
-               while (currentInt % 2 == nextInt % 2 || j == arr.length) {
+               while (j + 2 < arr.length - 1) {
+                  if (nextInt >= 0) {
+                     break;
+                  } else {
+                     nextInt = arr[j + 2];
+                     j++;
+                  }
+               }
+               while (currentInt % 2 == nextInt % 2) {
                   arr[i] += nextInt;
                   ifNoConsecutives = false;
                   arr[j + 1] = -1;
