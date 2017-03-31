@@ -3,10 +3,12 @@ package _6kyu;
 
 import org.junit.Test;
 
+import java.util.Arrays;
+
 import static org.junit.Assert.assertEquals;
 
 class Solution {
-//todo think how do without -1
+   //todo think how do without -1
    public static int sumGroups(int[] arr) {
       int length = arr.length;
       if (length == 1) {
@@ -23,22 +25,28 @@ class Solution {
             int j = i;
             if (j < arr.length - 1) {
                int nextInt = arr[j + 1]; //2
-               while (currentInt % 2 == nextInt % 2) {
+               while (currentInt % 2 == nextInt % 2 || j == arr.length) {
                   arr[i] += nextInt;
                   ifNoConsecutives = false;
                   arr[j + 1] = -1;
                   j++;
                   try {
-                     nextInt = arr[j + 1];
+                     while (true) {
+                        nextInt = arr[j + 1];
+                        if (nextInt >= 0) {
+                           break;
+                        } else {
+                           j++;
+                        }
+                     }
                   } catch (Exception e) {
                      break;
                   }
                }
             }
 
-
+            System.out.println(Arrays.toString(arr));
          }
-
       }
       for (int anArr : arr) {
          if (anArr < 0) {
