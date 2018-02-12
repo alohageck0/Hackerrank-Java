@@ -1,47 +1,68 @@
 package _6kyu.rainfall;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Rainfall {
+   public static ArrayList<Double> rainfall = new ArrayList<>();
+
    public static double mean(String town, String strng) {
-      if (ifHasTown(town)) {
-         String townRecord;
-         ArrayList<Double> arrayOfRecords = new ArrayList<>();
-         //change how to grab data
-         Scanner input = new Scanner(strng);
-         while (input.hasNext()) {
-            townRecord = input.next();
-            if (townRecord.contains(town)) {
-               arrayOfRecords = getArrayOfRecords(town, townRecord);
-               break;
-            }
-         }
-         double sum = 0;
-         for (int i = 0; i < arrayOfRecords.size(); i++) {
-            sum += arrayOfRecords.get(i);
-         }
-         return sum / 12;
-      } else {
+      System.out.println(town);
+      ArrayList<Double> rainfall = getListOfRecords(town, strng);
+      if (rainfall.size() == 0) {
          return -1;
       }
+      double sum = 0;
+      for (int i = 0; i < rainfall.size(); i++) {
+         sum += rainfall.get(i);
+      }
+      return sum / 12;
    }
 
    public static double variance(String town, String strng) {
-      return 0.0;
+      System.out.println(town);
+      ArrayList<Double> rainfall = getListOfRecords(town, strng);
+      if (rainfall.size() == 0) {
+         return -1;
+      }
+      double mean = mean(town, strng);
+      double difference = 0;
+      for (Double record : rainfall) {
+         difference += Math.pow((record - mean), 2);
+      }
+      return difference / 12;
    }
 
-   public static boolean ifHasTown(String town) {
-      return Arrays.asList(RainfallTest.towns).contains(town);
+   public static boolean ifHasTown(String town, String strng) {
+
+      Matcher m = Pattern.compile(town).matcher(strng);
+
+      return m.find();
    }
 
-   public static ArrayList<Double> getArrayOfRecords(String town, String townRecord) {
+   public static ArrayList<Double> getListOfRecords(String town, String strng) {
+      ArrayList<Double> rainfall = new ArrayList<>();
+      String[] towns = strng.split("\n");
+      for (String record : towns) {
+         Matcher m = Pattern.compile(town).matcher(record.substring(0, record.indexOf(":")));
+
+         System.out.println("town from record" + record.substring(0, record.indexOf(":")));
+         if (record.contains(town) ) {
+            rainfall = getArrayOfRecords(record);
+            break;
+         } else {
+            return rainfall;
+         }
+      }
+      return rainfall;
+   }
+
+   public static ArrayList<Double> getArrayOfRecords(String townRecord) {
       ArrayList<Double> arrayOfData = new ArrayList<>();
-      String monthsRecords = townRecord.substring(town.length() + 1);
-      String[] arrayOfMonths = monthsRecords.split(",");
-      for (String month : arrayOfMonths) {
-         arrayOfData.add(Double.valueOf(month.substring(4)));
+      Matcher m = Pattern.compile("\\d+\\.\\d").matcher(townRecord);
+      while (m.find()) {
+         arrayOfData.add(Double.valueOf(m.group()));
       }
       return arrayOfData;
    }

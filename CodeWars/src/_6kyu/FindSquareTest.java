@@ -42,6 +42,8 @@ public class FindSquareTest {
    @Test
    public void test2() {
       assertEquals(20, Squares.findSquares(4, 3));
+
+//      assertTrue();
    }
 
    @Test
