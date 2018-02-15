@@ -1,5 +1,33 @@
+import org.testng.annotations.Test;
+
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+
 public class LinkedListPrint {
 
+   @Test
+   public void testMerge() {
+      LinkedList<Integer> list1 = new LinkedList<>();
+      LinkedList<Integer> list2 = new LinkedList<>();
+      list1.add(2);
+      list1.add(5);
+      list1.add(7);
+      list1.add(8);
+      list1.add(11);
+      list2.add(1);
+      list2.add(6);
+      list2.add(9);
+      list2.add(10);
+      list2.add(13);
+      list2.add(55);
+      list2.add(66);
+      list2.add(77);
+      list2.add(79);
+
+
+      System.out.println(mergeOrderedLists(list1, list2).toString());
+   }
 
    public static void main(String[] args) {
       Node head = new Node();
@@ -171,5 +199,30 @@ public class LinkedListPrint {
          headB.next = MergeLists(headA, headB.next);
          return headB;
       }
+   }
+
+   List<Integer> mergeOrderedLists(List<Integer> list1, List<Integer> list2) {
+      List<Integer> result = new LinkedList<>();
+      Iterator<Integer> it1 = list1.listIterator();
+      Iterator<Integer> it2 = list2.listIterator();
+      int val1 = it1.next();
+      int val2 = it2.next();
+      while (it1.hasNext() && it2.hasNext()) {
+         if (val1 < val2) {
+            result.add(val1);
+            val1 = it1.next();
+            it1.remove();
+         } else {
+            result.add(val2);
+            val2 = it2.next();
+            it2.remove();
+         }
+      }
+      if (it1.hasNext()){
+         result.addAll(list1);
+      } else {
+         result.addAll(list2);
+      }
+      return result;
    }
 }
